@@ -1,25 +1,55 @@
 #include <iostream>
 #include <string>
+#include <Windows.h>
 using namespace std;
 void Game()
 {
+    cin.get();
     cout << "Жили были в мире орки и герои, и вдруг с небес снизошел главный Орк, который захотел отобрать земли у героев!" << endl;
 }
-void Weapon()
+class Gamer
 {
-    cout << " Выбирай себе оружие и его способность против орка!";
-    string Posoh = " Посох";
-    string Mech = " Меч";
-    string luk = " Лук";
+protected:
+    string attackluk1;
+    string attackluk2;
+    string attackluk3;
+    string attackposoh1;
+    string attackposoh2;
+    string attackposoh3;
+    string attackmech1;
+    string attackmech2;
+    string attackmech3;
+    string Posoh;
+    string Mech;
+    string luk;
     int vibor;
-    cout << " \nВыберите оружие которое хотите получить:"
-    << Posoh
-    << Mech
-    << luk << endl;
-    cin >> vibor;
-    
-    switch(vibor)
+    int dmg1 = -25;
+    int dmg2 = -15;
+    int dmg3 = -40;
+    int dmg4 = -17;
+    int dmg5 = -30;
+    int dmg6 = -15;
+    int dmg7 = -31;
+    int dmg8 = -23;
+    int dmg9 = -50;
+    int hp = 100;
+public:
+    void Weapon()
     {
+        cin.get();
+        cout << " Выбирай себе оружие и его способность против орка!";
+        string Posoh = " Посох";
+        string Mech = " Меч";
+        string luk = " Лук";
+        int vibor;
+        cout << " \nВыберите оружие которое хотите получить:"
+            << Posoh
+            << Mech
+            << luk << endl;
+        cin >> vibor;
+
+        switch (vibor)
+        {
         case 1:
             cout << " Вы выбрали " << Posoh << endl;
             break;
@@ -32,104 +62,121 @@ void Weapon()
         default:
             cout << "Вы ничего не выбрали!!!" << endl;
             break;
-    }
-    if(vibor == 1)
-    {
-        int a;
-        string attackposoh1 = " \nМетеоритный дождь";
-        string attackposoh2 = " \nЛедяной ураган";
-        string attackposoh3 = " \nЭфириумный звездопад";
-       cout << "Выберите способность которую хотите применить: "
-        << attackposoh1
-        << attackposoh2
-        << attackposoh3 << endl;
-        cin >> a;
-        switch(a)
+        }
+        if (vibor == 1)
         {
+            int a;
+            string attackposoh1 = " \nМетеоритный дождь";
+            string attackposoh2 = " \nЛедяной ураган";
+            string attackposoh3 = " \nЭфириумный звездопад";
+            cout << "Выберите способность которую хотите применить: "
+                << attackposoh1
+                << attackposoh2
+                << attackposoh3 << endl;
+            cin >> a;
+            switch (a)
+            {
             case 1:
                 cout << attackposoh1 << endl;
-                cout << "Метеоритным дождем вы нанесли -25HP" << endl;
+                cout << "Метеоритным дождем вы оставили орку " << hp + dmg1 << " HP" << endl;
                 break;
             case 2:
                 cout << attackposoh2 << endl;
-                cout << "Ледяным ураганом вы нанесли -15HP" << endl;
+                cout << "Ледяным ураганом вы оставили орку " << hp + dmg2 << " HP" << endl;
                 break;
             case 3:
                 cout << attackposoh3 << endl;
-                cout << "Жфириумным звездопадом вы нанесли -40HP" << endl;
+                cout << "Жфириумным звездопадом вы оставили орку " << hp + dmg3 << " HP" << endl;
                 break;
+            }
         }
-    }
-    if(vibor == 2)
-    {
-        int b;
-        string attackmech1 = " \nВзмах меча";
-        string attackmech2 = " \nВзлетная мгла";
-        string attackmech3 = " \nПрыжок за спину";
-       cout << "Выберите способность которую хотите применить: "
-        << attackmech1
-        << attackmech2
-        << attackmech3 << endl;
-        cin >> b;
-        switch(b)
+        if (vibor == 2)
         {
+            int b;
+            string attackmech1 = " \nВзмах меча";
+            string attackmech2 = " \nВзлетная мгла";
+            string attackmech3 = " \nПрыжок за спину";
+            cout << "Выберите способность которую хотите применить: "
+                << attackmech1
+                << attackmech2
+                << attackmech3 << endl;
+            cin >> b;
+            switch (b)
+            {
             case 1:
                 cout << attackmech1 << endl;
-                cout << "Взмахом меча вы нанесли -17HP" << endl;
+                cout << "Взмахом меча вы оставили орку " << hp + dmg4 << " HP" << endl;
                 break;
             case 2:
                 cout << attackmech2 << endl;
-                cout << "Взлетной мглой вы нанесли -30HP" << endl;
+                cout << "Взлетной мглой вы оставили орку " << hp + dmg5 << " HP" << endl;
                 break;
             case 3:
                 cout << attackmech3 << endl;
-                cout << "Прыжком за спину вы нанесли -15HP" << endl;
+                cout << "Прыжком за спину вы оставили орку " << hp + dmg6 << " HP" << endl;
                 break;
+            }
         }
-    }
-    if(vibor == 3)
-    {
-        int c;
-        string attackluk1 = " \nВзлетная посадка";
-        string attackluk2 = " \nПарящая стрела";
-        string attackluk3 = " \nСтрела тьмы";
-       cout << "Выберите способность которую хотите применить: "
-        << attackluk1
-        << attackluk2
-        << attackluk3 << endl;
-        cin >> c;
-        switch(c)
+        if (vibor == 3)
         {
+            int c;
+            string attackluk1 = " \nВзлетная посадка";
+            string attackluk2 = " \nПарящая стрела";
+            string attackluk3 = " \nСтрела тьмы";
+            cout << "Выберите способность которую хотите применить: "
+                << attackluk1
+                << attackluk2
+                << attackluk3 << endl;
+            cin >> c;
+            switch (c)
+            {
             case 1:
                 cout << attackluk1 << endl;
-                cout << "Взлетной посадкой вы нанесли -31HP" << endl;
+                cout << "Взлетной посадкой вы оставили орку " << hp + dmg7 << " HP" << endl;
                 break;
             case 2:
                 cout << attackluk2 << endl;
-                cout << "Парящей стрелой вы нанесли -23HP" << endl;
+                cout << "Парящей стрелой вы оставили орку " << hp + dmg8 << " HP" << endl;
                 break;
             case 3:
                 cout << attackluk3 << endl;
-                cout << "Стрелой тьмы вы нанесли -50HP" << endl;
+                cout << "Стрелой тьмы вы оставили орку " << hp + dmg9 << " HP" << endl;
                 break;
+            }
         }
     }
-}
+};
 void Start()
 {
-  cout << "Дуэль начнется через:"
+    cin.get();
+    cout << "Дуэль начнется через:"
         "\n1..."
-        "\n2..."
+        "\n2..." 
         "\n3..."
         "\nДуэль началась!!! " << endl;
 }
-class Player
+class Enemy : Gamer
 {
 public:
-    void Play(int sil, int ex)
+    void Ork()
     {
-    sila = sil;
-    exp = ex;
+        cin.get();
+        cout << " На Арене появился Орк, уничтожьте его! " << endl;
+        cout << " HP орка = " << hp << endl;
+    }
+protected:
+    int pickedskills;
+    int pickedweapon;
+    int ork;
+    int picked = true;
+}; 
+class Player : Gamer
+{
+public:
+    void Play(int sila, int exp)
+    {
+        sila = sila;
+        exp = exp;
     }
 private:
     int sila;
@@ -137,13 +184,26 @@ private:
 };
 int main()
 {
+    setlocale(LC_ALL, "ru");
     Game();
     string playername;
+    cin.get();
     cout << "Dведите свое игровое имя: " << playername;
     cin >> playername;
+    Sleep(3000);
+    cin.get();
     cout << "Приветствуем тебя " << playername << " в нашем клане" << endl;
+    Sleep(3000);
+    cin.get();
     cout << "Нам нужно проверить твои способности " << playername << " иди на арену и победи как можно больше врагов " << endl;
+    Sleep(3000);
     cout << endl;
+    cin.get();
+    cout << "Дуэль начнется по отсчету, готовься! " << endl;
+    Sleep(3000);
     Start();
-    Weapon();
+    Gamer d;
+    Enemy Orkk;
+    Orkk.Ork();
+    d.Weapon();
 }
