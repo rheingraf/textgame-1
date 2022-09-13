@@ -8,6 +8,9 @@ void Game()
 }
 class Gamer
 {
+public:
+    int hp = 100;
+    int* px = &hp;
 protected:
     string attackluk1;
     string attackluk2;
@@ -31,8 +34,6 @@ protected:
     int dmg7 = -31;
     int dmg8 = -23;
     int dmg9 = -50;
-    int hp = 100;
-    int* px = &hp;
 public:
     void Weapon()
     {
@@ -209,6 +210,7 @@ public:
         }
         if (att != 0)
         {
+  
             cout << " Ваши хп после атаки орка = " << *px - att << endl;
         }
         if (att == 0)
@@ -220,22 +222,18 @@ public:
     {
         cout << "Ваши хп значительно упали после первой атаки орка " << endl;
         cout << "Вы можете восстановить их" << endl;
-        if (*px != 0)
+        cout << "Нажмите 1 чтобы восстановить хп, 2 чтобы не восстанавливать хп " << endl;
+        cin >> viborr;
+        switch (viborr)
         {
-            cout << "Чтобы восстановить хп нажмите на 1 " << endl;
-            cout << "Чтобы не восстанавливать хп нажмите на 2" << endl;
-            cin >> viborr;
-            switch (viborr)
-            {
-            case 1:
-                cout << "Ваши hp восстановлены = " << *px << endl;
+        case 1:
+                cout << "Ваши хп восстановлены" << *px << endl;
                 break;
-            case 2:
-                cout << "Ваши хп не восстановелны " << *px << endl;
+        case 2:
+                cout << "Ваши хп не восстановлены" << *px - att << endl;
                 break;
-            default:
-                cout << "Данной функции не существует" << endl;
-            }
+        default:
+            cout << "Данной функции нет" << endl;
         }
     }
 };
@@ -244,7 +242,7 @@ class ReturnPvp : public Gamer
 public:
     void ReturnedPvp()
     {
-        cout << " Орк не был побежден, добей его другими атаками " << endl;
+        cout << "Орк не был побежден, добей его другими атаками " << endl;
         if (*px != 0)
         {
             Weapon();
