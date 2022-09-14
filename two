@@ -11,6 +11,7 @@ class Gamer
 public:
     int hp = 100;
     int* px = &hp;
+    int hpork = 100;
 protected:
     string attackluk1;
     string attackluk2;
@@ -161,33 +162,32 @@ class Enemy : Gamer
 public:
     void Ork()
     {
-        cout << " На Арене появился Орк, уничтожьте его! " << endl;
-        cout << " HP орка = " << hpork << endl;
+        cout << "На Арене появился Орк, уничтожьте его! " << endl;
+        cout << "HP орка = " << hpork << endl;
     }
 protected:
     int pickedskills;
     int pickedweapon;
     int ork;
     int picked;
-    int hpork = 100;
 };
 class Player : Gamer
 {
 public:
     void Play()
     {
-        cout << " Твои HP = " << *px << endl;
-        cout << " Твой опыт = " << exp << endl;
-        cout << " Твоя сила = " << sila << endl;
+        cout << "Твои HP = " << *px << endl;
+        cout << "Твой опыт = " << exp << endl;
+        cout << "Твоя сила = " << sila << endl;
         if (hp == 100)
         {
             exp += 5;
             sila += 5;
             cin.get();
-            cout << " Характеристики героя повышаются от побед над монстрами " << endl;
-            cout << " Твои хп сейчас = " << *px << endl;
-            cout << " Твой опыт = " << exp << endl;
-            cout << " Твоя сила = " << sila << endl;
+            cout << "Характеристики героя повышаются после атак героя " << endl;
+            cout << "Твои хп сейчас = " << *px << endl;
+            cout << "Твой опыт = " << exp << endl;
+            cout << "Твоя сила = " << sila << endl;
         }
     }
 protected:
@@ -227,7 +227,7 @@ public:
         switch (viborr)
         {
         case 1:
-                cout << "Ваши хп восстановлены" << *px << endl;
+                cout << "Ваши хп восстановлены = " << *px << endl;
                 break;
         case 2:
                 cout << "Ваши хп не восстановлены" << *px - att << endl;
@@ -240,14 +240,14 @@ public:
 class ReturnPvp : public Gamer
 {
 public:
+    ReturnPvp()
+    {
+        hpork;
+    }
     void ReturnedPvp()
     {
-        cout << "Орк не был побежден, добей его другими атаками " << endl;
-        if (*px != 0)
-        {
-            Weapon();
-        }
-        
+        cout << " Орк не добит! Попробуй добить его разными атаками " << endl;
+        cout << hpork << endl;
     }
 };
 int main()
@@ -275,4 +275,6 @@ int main()
     AttackOrk ork;
     ork.AttackaOrka();
     ork.ReturnedHp();
+    ReturnPvp returnpvp;
+    returnpvp.ReturnedPvp();
 }
